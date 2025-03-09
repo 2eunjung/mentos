@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="ko">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -26,9 +27,9 @@
       
       <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small" style="font-size: 12px">
         <li>
-          <a href="#" class="nav-link text-white">
-            <i class="bi bi-three-dots-vertical"></i>
-            Menu
+          <a href="../attendance/main" class="nav-link text-white">
+            <i class="bi bi-calendar-check"></i>
+            Attendance
           </a>
         </li>
         <li>
@@ -36,6 +37,17 @@
             <i class="bi bi-bell"></i>
             Notice
           </a>
+        </li>
+        <li>
+          <div class="dropdown">
+            <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 12px">
+              <i class="bi bi-person"></i> My Page
+            </button>
+            <ul class="dropdown-menu" style="font-size: 12px; min-width: unset; width: auto;">
+              <li><a class="dropdown-item" href="#"><i class="bi bi-inboxes-fill"></i> 예약 내역</a></li>
+              <li><a class="dropdown-item" href="#"><i class="bi bi-gear-fill"></i> 정보 변경</a></li>
+            </ul>
+          </div>
         </li>
         <li>
           <a href="../user/login" class="nav-link text-white">

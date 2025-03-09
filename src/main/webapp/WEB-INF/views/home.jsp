@@ -15,70 +15,17 @@
 <%@include file="common/header.jsp" %>
 <body>
 <div class="container">
-	<div class="row m-1">
+	<div class="row m-3">
 		<div class="col-10 d-flex align-items-center justify-content-center">
-			<img src="../resources/img/임시 메인비주얼.png" width="650">
+			<img src="../resources/img/임시 메인비주얼.png" width="65%">
 		</div>
-		<div class="col d-flex align-items-center justify-content-center">
+		<div class="col d-flex align-items-center">
 			<!-- Button trigger modal -->
-			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-				Launch demo modal
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mento-list">
+				예약하기
 			</button>
-			
-			<!-- Modal -->
-			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h1 class="modal-title fs-5" id="exampleModalLabel">멘토링 예약하기</h1>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						</div>
-						<div class="modal-body">
-							<form action="" method="POST">
-								<div class="row">
-									<div class="col d-flex justify-content-end">
-										<input type="radio" name="sort" id="cancleRate">
-										<label for="cancleRate" class="me-3">취소율</label>
-										
-										<input type="radio" name="sort" id="participationRate">
-										<label for="participationRate">참여율</label>
-									</div>
-									
-									<div class="row mt-3">
-										<div class="col">
-											<table class="table">
-												<tbody class="text-start">
-													<tr>
-														<th>예시1</th>
-													</tr>
-													<tr>
-														<th>예시2</th>
-													</tr>
-													<tr>
-														<th>예시3</th>
-													</tr>
-													<tr>
-														<th>예시4</th>
-													</tr>
-													<tr>
-														<th>예시5</th>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-								</div>
-							</form>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-primary">Next</button>
-						</div>
-						
-					</div>
-				</div>
-			</div>
 		</div>
+		<%@include file="reservation/modal-mento-list.jsp"%>
 	</div>
 	
 	<div class="row m-3">
