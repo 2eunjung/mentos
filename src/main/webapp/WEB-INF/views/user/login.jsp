@@ -38,7 +38,7 @@
 					</div>
 					
 					<div class="d-flex gap-3 mt-3 d-flex justify-content-center">
-						<a href="#" class="btn btn-primary">회원가입</a>
+						<a href="join" class="btn btn-primary">회원가입</a>
 						<a href="#" class="btn btn-secondary">계정찾기</a>
 					</div>
 				</form>

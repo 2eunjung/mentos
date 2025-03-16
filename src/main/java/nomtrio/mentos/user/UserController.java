@@ -29,5 +29,8 @@ public class UserController {
         userService.createUser(userVO);
     }
 
-
+    @GetMapping("/join")
+    public String join() {
+        return "user/join";
+    }
 }
