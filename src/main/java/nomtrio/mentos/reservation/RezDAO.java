@@ -1,4 +1,10 @@
 package nomtrio.mentos.reservation;
 
-public class RezDAO {
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+
+@Mapper
+@Repository
+public interface RezDAO {
+
 }
