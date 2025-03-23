@@ -14,10 +14,10 @@
 </style>
 <%@include file="common/header.jsp" %>
 <body>
-<div class="container">
+<div class="container pd-5">
 	<div class="row m-3">
-		<div class="col-10 d-flex align-items-center justify-content-center">
-			<img src="../resources/img/임시 메인비주얼.png" width="65%">
+		<div class="col-10 d-flex align-items-center justify-content-center" >
+			<img src="../resources/img/멘토링 메인 이미지.png" width="80%">
 		</div>
 		<div class="col d-flex align-items-center">
 			<!-- Button trigger modal -->
@@ -27,7 +27,7 @@
 		</div>
 		<%@include file="reservation/modal-mento-list.jsp"%>
 	</div>
-	
+
 	<div class="row m-3">
 		<div class="col-3 text-center">
 			<img src="../resources/img/프로필 예시.png" class="rounded-circle" width="120">
@@ -47,8 +47,8 @@
 		</div>
 	</div>
 </div>
-</body>
 <%@include file="common/footer.jsp" %>
+</body>
 <script>
 </script>
 </html>

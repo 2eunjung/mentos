@@ -1,14 +1,26 @@
 package nomtrio.mentos.reservation;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/reservation")
+@RequestMapping("")
 @Controller
 public class RezController {
-    @GetMapping("/main")
+
+    private RezService rezService;
+
+    @GetMapping("/reservation/main")
     public String rezMain() {
         return "reservation/main";
     }
+
+    @GetMapping("/modal-mento-list")
+    @ResponseBody
+    public Mento mentoList(@RequestParam("no") int no) {
+        Mento mento = rezService.getMentoList(no);
+
+        return mento;
+    }
+
+//    @PostMapping("/")
 }

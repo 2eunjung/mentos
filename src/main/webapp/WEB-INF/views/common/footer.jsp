@@ -16,7 +16,6 @@
     font-style: normal;
   }
   #footer {
-    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -26,7 +25,7 @@
   }
 </style>
 <body>
-<div class="" id="footer">
+<div class="mt-5" id="footer">
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-2 my-2 border-top">
     <div class="col-md-4 d-flex align-items-center" style="margin-left: 50px" id="mentos-footer">
       <a style="font-size: 25px;"><strong>M</strong>entos</a>
