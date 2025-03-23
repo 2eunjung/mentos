@@ -20,6 +20,9 @@
     bottom: 0;
     left: 0;
     width: 100%;
+    background-color: white;
+    height: 60px; /* 푸터 높이 지정 */
+    z-index: 1000; /* 다른 요소 위에 배치 */
   }
 </style>
 <body>
