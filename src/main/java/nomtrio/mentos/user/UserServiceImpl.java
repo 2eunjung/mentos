@@ -1,10 +1,9 @@
 package nomtrio.mentos.user;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.User;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -13,12 +12,20 @@ public class UserServiceImpl implements UserService{
     private final UserDao userDao;
 
     @Override
-    public List<User> getAllUsers() {
-        return List.of();
+    public void register(UserVO user) {
+        userDao.register(user);
     }
 
     @Override
-    public void createUser(UserVO user) {
-        userDao.register(user);
+    public UserVO findByUsername(String username) {
+        UserVO userVo = userDao.findByUsername(username);
+
+        if(userVo == null){
+            throw new UsernameNotFoundException("사용자를 찾을 수 없습니다 :" + username);
+        }
+
+        return userVo;
     }
+
+
 }

@@ -15,6 +15,7 @@
 			<div class="col-8 d-flex justify-content-center align-items-center">
 				<img src="../resources/img/임시%20대표이미지.png" width="100%">
 			</div>
+			<form method="post" action="/logincheck">
 			<div class="col d-flex justify-content-center align-items-center">
 				<form class="w-100 text-center">
 					<div class="d-flex gap-5 d-flex justify-content-center">
@@ -33,12 +34,16 @@
 					</div>
 					
 					<div class="login-form mt-3">
-						<input type="text" style="margin-top: 10px" class="rounded" placeholder="ID"></br>
-						<input type="password" style="margin-top: 10px" class="rounded" placeholder="PW">
+						<label for="username">아이디</label>
+						<input type="text" style="margin-top: 10px" class="rounded" id="username" name="username" placeholder="아이디를 입력하세요" required />
+						<label for="password">비밀번호</label>
+						<input type="password" style="margin-top: 10px" class="rounded" id="password" name="password" placeholder="비밀번호를 입력하세요" required />
+						<button type="submit">로그인</button>
 					</div>
+				</form>
 					
 					<div class="d-flex gap-3 mt-3 d-flex justify-content-center">
-						<a href="join" class="btn btn-primary">회원가입</a>
+						<a href="/register" class="btn btn-primary">회원가입</a>
 						<a href="#" class="btn btn-secondary">계정찾기</a>
 					</div>
 				</form>

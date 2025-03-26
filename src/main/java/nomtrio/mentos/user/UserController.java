@@ -1,36 +1,43 @@
 package nomtrio.mentos.user;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.catalina.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
-@RequestMapping("/user")
 @Controller
+@RequestMapping("/user")
 public class UserController {
 
     private final UserService userService;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
     @GetMapping("/login")
     public String login() {
         return "user/login";
     }
 
-    @GetMapping("/test")
-    public String test() {
-        return "user/test";
+    @GetMapping("/register")
+    public String register() {
+        return "user/register";
     }
 
-    @PostMapping("register")
-    public void register(@RequestParam String username, @RequestParam String email) {
-        UserVO userVO = new UserVO();
-        userVO.setUsername(username);
-        userVO.setEmail(email);
-        userService.createUser(userVO);
+    @GetMapping("/logout")
+    public String logout() {
+        return "home";
+    }
+
+    @PostMapping("/register")
+    public void register(@ModelAttribute UserVO user) {
+        user.setMember_pw(bCryptPasswordEncoder.encode(user.getMember_pw()));
+        userService.register(user);
     }
 
     @GetMapping("/join")
     public String join() {
-        return "user/join";
+        return "join";
     }
 }
