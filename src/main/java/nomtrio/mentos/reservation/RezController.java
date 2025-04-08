@@ -1,13 +1,21 @@
 package nomtrio.mentos.reservation;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequestMapping("")
 @Controller
 public class RezController {
 
-    private RezService rezService;
+
+    private final RezService rezService;
+
+    public RezController(RezService rezService) {
+        this.rezService = rezService;
+    }
 
     @GetMapping("/reservation/main")
     public String rezMain() {
@@ -16,11 +24,13 @@ public class RezController {
 
     @GetMapping("/modal-mento-list")
     @ResponseBody
-    public Mento mentoList(@RequestParam("no") int no) {
-        Mento mento = rezService.getMentoList(no);
+    public List<Mento> mentoList() {
+        System.out.println("-----------------------------------------------");
+        List<Mento> mentos = rezService.getMentoList();
 
-        return mento;
+        System.out.println("-----------------------------------------------" + mentos);
+
+        return mentos;
     }
 
-//    @PostMapping("/")
 }

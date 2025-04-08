@@ -21,7 +21,7 @@
 		</div>
 		<div class="col d-flex align-items-center">
 			<!-- Button trigger modal -->
-			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mento-list">
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mento-list" onclick="mentoList()">
 				예약하기
 			</button>
 		</div>

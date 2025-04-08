@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="nomtrio.mentos.reservation.RezDAO">
+
+    <!--
+        List<Mento> getMentoLists();
+    -->
+    <select id="getMentoLists" resultType="nomtrio.mentos.reservation.Mento">
+        select
+            MENTORING_NO        as no
+            , MEMBER_NO         as memberNo
+            , MENTORING_TITLE   as title
+            , MENTORING_FIELD   as field
+            , MENTORING_DESC    as description
+            , MENTORING_RATING  as rating
+        from mentos.MENTORINGS
+    </select>
+</mapper>

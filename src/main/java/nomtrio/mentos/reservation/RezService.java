@@ -1,7 +1,9 @@
 package nomtrio.mentos.reservation;
 
+import java.util.List;
+
 public interface RezService {
-    Mento getMentoList(int no);
+    List<Mento> getMentoList();
 
 
 }

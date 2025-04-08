@@ -6,6 +6,7 @@
 	<title>Mentos</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 	<style>
 		.modal-dialog {
 			max-width: 600px; /* 모달 크기 조정 */
@@ -68,62 +69,8 @@
 
 					<!-- 멘토 리스트 -->
 					<div class="row mt-3">
-						<div class="col">
-							<!-- 홍길동 -->
-							<div class="mentor-card">
-								<input type="radio" id="mentor1" name="selectedMentor">
-								<label for="mentor1">
-									<img src="/resources/img/프로필 예시.png" alt="홍길동">
-									<div class="mentor-info">
-										<strong>홍길동</strong>
-										<p class="mb-0 text-muted">현) 한화생명 - 시니어 프론트엔드 개발자</p>
-										<p class="mb-0 text-muted">전) 블록체인 NFT 개발</p>
-										<p class="mb-0 text-muted">1회 멘토링: 1시간 / 33,000원 / 1명</p>
-									</div>
-								</label>
-							</div>
-
-							<!-- 김유신 -->
-							<div class="mentor-card">
-								<input type="radio" id="mentor2" name="selectedMentor">
-								<label for="mentor2">
-									<img src="/resources/img/프로필 예시.png" alt="김유신">
-									<div class="mentor-info">
-										<strong>김유신</strong>
-										<p class="mb-0 text-muted">현) 네이버 - 백엔드 개발자</p>
-										<p class="mb-0 text-muted">전) 카카오 - 데이터 엔지니어</p>
-										<p class="mb-0 text-muted">1회 멘토링: 1시간 / 35,000원 / 1명</p>
-									</div>
-								</label>
-							</div>
-
-							<!-- 강감찬 -->
-							<div class="mentor-card">
-								<input type="radio" id="mentor3" name="selectedMentor">
-								<label for="mentor3">
-									<img src="/resources/img/프로필 예시.png" alt="강감찬">
-									<div class="mentor-info">
-										<strong>강감찬</strong>
-										<p class="mb-0 text-muted">현) 삼성전자 - AI 연구원</p>
-										<p class="mb-0 text-muted">전) LG CNS - 데이터 사이언티스트</p>
-										<p class="mb-0 text-muted">1회 멘토링: 1시간 / 30,000원 / 1명</p>
-									</div>
-								</label>
-							</div>
-
-							<!-- 이순신 -->
-							<div class="mentor-card">
-								<input type="radio" id="mentor4" name="selectedMentor">
-								<label for="mentor4">
-									<img src="/resources/img/프로필 예시.png" alt="이순신">
-									<div class="mentor-info">
-										<strong>이순신</strong>
-										<p class="mb-0 text-muted">현) 구글 - 소프트웨어 엔지니어</p>
-										<p class="mb-0 text-muted">전) 페이스북 - 시스템 아키텍트</p>
-										<p class="mb-0 text-muted">1회 멘토링: 1시간 / 31,000원 / 1명</p>
-									</div>
-								</label>
-							</div>
+						<div class="col" id="mentor-list">
+							<!-- 멘토 카드가 동적으로 삽입될 위치 -->
 						</div>
 					</div>
 
@@ -138,9 +85,34 @@
 	</div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+<script type="text/javascript"></script>
+<script>
+	const myModal = new bootstrap.Modal('#mento-list');
+
 	async function mentoList() {
-		let response =await fetch("/modal-mento-list");
+		let response = await fetch("/modal-mento-list");
+		let mentors = await response.json();
+		let mentorListContainer = document.getElementById("mentor-list");
+		mentorListContainer.innerHTML = "";
+
+		mentors.forEach(mentor => {
+			let mentorCard = `
+				<div class="mentor-card">
+					<input type="radio" id="mentor${mentor.no}" name="selectedMentor">
+					<label for="mentor${mentor.no}">
+						<img src="/resources/img/프로필 예시.png" alt="${mentor.title}">
+						<div class="mentor-info">
+							<strong>${mentor.title}</strong>
+							<p class="mb-0 text-muted">${mentor.field}</p>
+							<p class="mb-0 text-muted">${mentor.description}</p>
+						</div>
+					</label>
+				</div>
+			`;
+			mentorListContainer.innerHTML += mentorCard;
+		});
+
+		myModal.show();
 	}
 </script>
 </body>
